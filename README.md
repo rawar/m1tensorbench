@@ -83,7 +83,7 @@ Möchte man sich bei der Ausführung ansehen, wie stark die GPU-Kerne und die CP
 | MacBook Pro (16" 2021) | 64 GB | Apple M1 Max | 54,17s user 3,32s system 115% cpu 49,707 total | 139,08s user 40,62s system 207% cpu 1:26,43 total | 8624,12s user 658,72s system 813% cpu 19:01,11 total | 1975,25s user 348,53s system 751% cpu 5:09,25 total | 9719,25s user 602,15s system 842% cpu 20:24,96 total | nein |
 | MacBook Pro (16" 2021) | 64 GB | Apple M1 Max | 36,29s user 12,58s system 101% cpu 48,321 total | 333,92s user 276,42s system 102% cpu 9:56,62 total | 10,52s user 12,66s system 20% cpu 1:53,65 total| 8,50s user 5,25s system 25% cpu 53,277 total | 17,95s user 11,78s system 21% cpu 2:20,08 total | ja |
 | MacBook Pro (13" 2020) | 16 GB | Apple M1 | 0 | 0 | 0 | 0 | 0 | nein |
-| MacBook Pro (13" 2020) | 16 GB | Apple M1 |  | 0 | 0 | 0 | 0 | ja |
+| MacBook Pro (13" 2020) | 16 GB | Apple M1 | 39,01s user 11,90s system 88% cpu 57,479 total | 360,75s user 230,07s system 116% cpu 8:26,47 total | 22,33s user 423,95s system 77% cpu 9:39,18 total | 15,69s user 106,75s system 54% cpu 3:45,36 total | 0 | ja |
  
 
 ## Weitere Informationen
