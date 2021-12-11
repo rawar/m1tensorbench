@@ -45,11 +45,17 @@ Auf einem Mac Mini (2018) mit Intel CPU wird folgendes ausgegeben:
 
 Das Repository enthält folgende Tensoflow-Trainingsskripte:
 
+<pre>
+$ python3 train_benchmark.py --type cnn --model resnet50
+$ python3 train_benchmark.py --type cnn --model mobilenetv2
+$ python3 train_benchmark.py --type transformer --model distilbert-base-uncased
+$ python3 train_benchmark.py --type transformer --model bert-large-uncased --bs 16
+</pre>
 
 
 ## Ausführen der Beispiele
 
-Die Beispiele im Verzeichnis ``...`` können einfach einzeln mit Hilfe von
+Die Beispiele im Verzeichnis ``m1tensorbench`` können einfach einzeln mit Hilfe von
 
 ``$ python3 lstm.py``oder  
 ``$ python3 mnist2.py``ausgeführt werden. Möchte man die Zeit der Ausführung messen, reicht es auf der Kommandozeile mit 
@@ -67,6 +73,17 @@ Möchte man sich bei der Ausführung ansehen, wie stark die GPU-Kerne und die CP
 | Mac Mini (2018) | 8 GB | 3,2 GHz 6-Core Intel Core i7 |  96.76s user 5.51s system 113% cpu 1:30.46 total | 292.83s user 52.89s system 226% cpu 2:32.57 total | nein |   
 | MacBook Pro (16" 2021) | 64 GB | Apple M1 Max | 54,17s user 3,32s system 115% cpu 49,707 total | 139,08s user 40,62s system 207% cpu 1:26,43 total | nein |
 | MacBook Pro (16" 2021) | 64 GB | Apple M1 Max | 36,29s user 12,58s system 101% cpu 48,321 total | 0 | ja |
+
+## Weitere Informationen
+Weitere Informationen zum Thema Tensorflow Benchmarking auf Apples M1 Silicon finden sich auf folgenden Seiten:
+
+* [Benchmarking the Apple M1 Max](https://tlkh.dev/benchmarking-the-apple-m1-max)
+* [M1 competes with 20 cores Xeon®on TensorFlow training](https://towardsdatascience.com/benchmark-m1-part-2-vs-20-cores-xeon-vs-amd-epyc-16-and-32-cores-8e394d56003d)
+* [Installing Tensorflow on Apple M1 With the New Metal Plugin](
+https://betterprogramming.pub/installing-tensorflow-on-apple-m1-with-new-metal-plugin-6d3cb9cb00ca)
+* [Tensorflow Metal](https://developer.apple.com/metal/tensorflow-plugin/)
+* [Accelerating TensorFlow Performance on Mac](https://blog.tensorflow.org/2020/11/accelerating-tensorflow-performance-on-mac.html)
+* [Getting Started with tensorflow-metal PluggableDevice](https://developer.apple.com/metal/tensorflow-plugin/)
 
 
 
