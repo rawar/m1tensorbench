@@ -6,10 +6,6 @@ tf.enable_v2_behavior()
 from tensorflow.python.framework.ops import disable_eager_execution
 disable_eager_execution()
 
-from tensorflow.python.compiler.mlcompute import mlcompute
-mlcompute.set_mlc_device(device_name='gpu')
-
-
 (ds_train, ds_test), ds_info = tfds.load(
     'mnist',
     split=['train', 'test'],
