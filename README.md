@@ -1,6 +1,6 @@
 # Apple M1 Tensorflow Bechmark Beispiele
 
-Dieses Repository enthält einige Deep Learning Beispiele welche dazu dienen können, die Trainingsgeschwinidgkeit von Apples M1 SoC-Familie (M1, M1 Pro, M1 Max) innerhalb von Tensorflow zu messen. 
+Dieses Repository enthält einige Deep Learning Beispiele um die Trainingsgeschwinidgkeit von Apples M1 SoC-Familie (M1, M1 Pro, M1 Max) mit Hilfe von Tensorflow zu messen. 
 
 ## Für wen ist dieses Repository gedacht?
 
@@ -11,17 +11,17 @@ Data Scientisten, welche einen Apple Rechner mit M1 besitzen, können mit Hilfe 
 Um die nötige Software zu installieren, sind folgende Schritte nötig:
 
 1. Installation von [Homebrew](https://brew.sh) ``$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`` 
-1. Download Miniforge (Conda Installation) für macOS ARM64 Chips (M1, M1 Pro, M1 Max) ``$ brew install miniforge`
+1. Download Miniforge (Conda Installation) für macOS ARM64 Chips (M1, M1 Pro, M1 Max) ``$ brew install miniforge``
 1. Tensorflow Conda Umgebung anlegen mit ``$ conda create -n tfm1 python=3.8``
 1. Conda-Shell aktivieren mit ``$ conda init zsh`` 
 1. Conda-Umgebung aktuvieren mit ``$ conda activate tfm1``
 1. Tensorflow für M1 installieren mit ``$ conda install -c apple tensorflow-deps`` ``$ python3 -m pip install tensorflow-macos`` ``$ python3 -m pip install tensorflow-metal``
 1. Clonen dieses Repositories mit ``$ git clone https://github.com/rawar/m1tensorbench.git``
-1. Transformers Sprachmodelle mit ``$ pip install transformers` 
+1. Transformers Sprachmodelle mit ``$ pip install transformers`` 
 
 ## Optionale Tools
 
-Um mit Tensorflow auf dem M1 produktiv arbeiten zu können, lohnen sich auch noch folgende Tools:
+Um alle Beispiele ausführen zu können, lohnt die Installation folgender Tools:
 
 1. Update der installierten pip Version mit ``$ pip install --upgrade pip``
 1. Installation von Xcode mit ``$ xcode-select --install`
@@ -46,19 +46,30 @@ Um zu prüfen, ob die richtige Tensorflow-Version installiert ist, kann innerhal
 </pre>
 
 Auf einem Mac Mini (2018) mit Intel CPU wird folgendes ausgegeben:
-``
+
+<pre>
+>>> tf.__version__
+'2.7.0'
+>>> tf.config.list_physical_devices()
+[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+</pre>
+
+Auf dem Macbook Pro (2021) mit M1 Pro:
+
+
 
 ## Beispiel-Skripte
 
 Das Repository enthält folgende Tensoflow-Trainingsskripte:
 
-Ein einfaches LSTML-Modell wird mit Hilfe von ``$ python3 lstm.py`` trainiert.
+Ein einfaches LSTML-Modell wird mit Hilfe von ``$ python3 lstm.py`` trainiert. Folgende Skripte wurden für die Benchmark-Ergebnisse ausgeführt:
 
 <pre>
+$ python3 lstm.py
+$ python3 mnist.py
 $ python3 train_benchmark.py --type cnn --model resnet50
 $ python3 train_benchmark.py --type cnn --model mobilenetv2
 $ python3 train_benchmark.py --type transformer --model distilbert-base-uncased
-$ python3 train_benchmark.py --type transformer --model bert-large-uncased --bs 16
 </pre>
 
 
@@ -77,11 +88,15 @@ Möchte man sich bei der Ausführung ansehen, wie stark die GPU-Kerne und die CP
 
 ## Benchmark Ergebnisse
 
+Alle Benchmarks sind auf macOS 12.01 (Monterey) entstanden. Die Grafikkarte des Mac Mini (Intel UHD Graphic) wurde von Tensorflow nicht als GPU erkannt und unterstützt. Ich weiss, dass die Messung mit Hilfe von ``time``etwas ungenauer sind als zum Beispiel mit ``perf stat``. Bei allen Messungen wurden keine weiteren anderen Programme gestartet (ausser die welche bei Systemstart liefen).
+
 | Rechner |	RAM	| CPU/GPU | lstm.py | mnist.py | resnet50 | mobilenetv2 | distilbert | Metal | 
 | --------| ---------| ---|------|-------| -------| ----- | ---- | ---- |
 | Mac Mini (2018) | 8 GB | 3,2 GHz 6-Core Intel Core i7 |  96.76s user 5.51s system 113% cpu 1:30.46 total | 292.83s user 52.89s system 226% cpu 2:32.57 total | 21689.79s user 9961.12s system 759% cpu 1:09:25.48 total | 7548.09s user 5944.51s system 673% cpu 33:23.73 total | 17771.00s user 9204.41s system 743% cpu 1:00:25.83 total | nein |   
 | MacBook Pro (16" 2021) | 64 GB | Apple M1 Max | 54,17s user 3,32s system 115% cpu 49,707 total | 139,08s user 40,62s system 207% cpu 1:26,43 total | 8624,12s user 658,72s system 813% cpu 19:01,11 total | 1975,25s user 348,53s system 751% cpu 5:09,25 total | 9719,25s user 602,15s system 842% cpu 20:24,96 total | nein |
 | MacBook Pro (16" 2021) | 64 GB | Apple M1 Max | 36,29s user 12,58s system 101% cpu 48,321 total | 333,92s user 276,42s system 102% cpu 9:56,62 total | 10,52s user 12,66s system 20% cpu 1:53,65 total| 8,50s user 5,25s system 25% cpu 53,277 total | 17,95s user 11,78s system 21% cpu 2:20,08 total | ja |
+| MacBook Pro (16" 2021) | 32 GB | Apple M1 Pro | 51,39s user 3,49s system 116% cpu 47,173 total | 143,02s user 43,57s system 203% cpu 1:31,80 total | 10187,99s user 741,22s system 382% cpu 47:40,95 total | 2061,17s user 350,96s system 750% cpu 5:21,41 total | 9790,15s user 613,01s system 836% cpu 20:43,79 total | nein |
+| MacBook Pro (16" 2021) | 32 GB | Apple M1 Pro | 35,53s user 12,13s system 72% cpu 1:05,49 total | 349,65s user 269,74s system 84% cpu 12:16,41 total | 13,25s user 64,56s system 34% cpu 3:42,72 total | 8,51s user 4,51s system 15% cpu 1:23,39 total | 20,71s user 53,77s system 30% cpu 4:06,54 total | ja |
 | MacBook Pro (13" 2020) | 16 GB | Apple M1 | 0 | 0 | 0 | 0 | 0 | nein |
 | MacBook Pro (13" 2020) | 16 GB | Apple M1 | 39,01s user 11,90s system 88% cpu 57,479 total | 360,75s user 230,07s system 116% cpu 8:26,47 total | 22,33s user 423,95s system 77% cpu 9:39,18 total | 15,69s user 106,75s system 54% cpu 3:45,36 total | 0 | ja |
  
