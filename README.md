@@ -91,15 +91,14 @@ Möchte man sich bei der Ausführung ansehen, wie stark die GPU-Kerne und die CP
 Alle Benchmarks sind auf macOS 12.01 (Monterey) entstanden. Die Grafikkarte des Mac Mini (Intel UHD Graphic) wurde von Tensorflow nicht als GPU erkannt und unterstützt. Ich weiss, dass die Messung mit Hilfe von ``time``etwas ungenauer sind als zum Beispiel mit ``perf stat``. Bei allen Messungen wurden keine weiteren anderen Programme gestartet (ausser die welche bei Systemstart liefen).
 
 | Rechner |	RAM	| CPU/GPU | lstm.py | mnist.py | resnet50 | mobilenetv2 | distilbert | Metal | 
-| --------| ---------| ---|------|-------| -------| ----- | ---- | ---- |
+| --------| ---------| ---|------|-------| -------| ----- | ---- | ---- | 
 | Mac Mini (2018) | 8 GB | 3,2 GHz 6-Core Intel Core i7 |  96.76s user 5.51s system 113% cpu 1:30.46 total | 292.83s user 52.89s system 226% cpu 2:32.57 total | 21689.79s user 9961.12s system 759% cpu 1:09:25.48 total | 7548.09s user 5944.51s system 673% cpu 33:23.73 total | 17771.00s user 9204.41s system 743% cpu 1:00:25.83 total | nein |   
 | MacBook Pro (16" 2021) | 64 GB | Apple M1 Max | 54,17s user 3,32s system 115% cpu 49,707 total | 139,08s user 40,62s system 207% cpu 1:26,43 total | 8624,12s user 658,72s system 813% cpu 19:01,11 total | 1975,25s user 348,53s system 751% cpu 5:09,25 total | 9719,25s user 602,15s system 842% cpu 20:24,96 total | nein |
 | MacBook Pro (16" 2021) | 64 GB | Apple M1 Max | 36,29s user 12,58s system 101% cpu 48,321 total | 333,92s user 276,42s system 102% cpu 9:56,62 total | 10,52s user 12,66s system 20% cpu 1:53,65 total| 8,50s user 5,25s system 25% cpu 53,277 total | 17,95s user 11,78s system 21% cpu 2:20,08 total | ja |
 | MacBook Pro (16" 2021) | 32 GB | Apple M1 Pro | 51,39s user 3,49s system 116% cpu 47,173 total | 143,02s user 43,57s system 203% cpu 1:31,80 total | 10187,99s user 741,22s system 382% cpu 47:40,95 total | 2061,17s user 350,96s system 750% cpu 5:21,41 total | 9790,15s user 613,01s system 836% cpu 20:43,79 total | nein |
 | MacBook Pro (16" 2021) | 32 GB | Apple M1 Pro | 35,53s user 12,13s system 72% cpu 1:05,49 total | 349,65s user 269,74s system 84% cpu 12:16,41 total | 13,25s user 64,56s system 34% cpu 3:42,72 total | 8,51s user 4,51s system 15% cpu 1:23,39 total | 20,71s user 53,77s system 30% cpu 4:06,54 total | ja |
-| MacBook Pro (13" 2020) | 16 GB | Apple M1 | 0 | 0 | 0 | 0 | 0 | nein |
-| MacBook Pro (13" 2020) | 16 GB | Apple M1 | 39,01s user 11,90s system 88% cpu 57,479 total | 360,75s user 230,07s system 116% cpu 8:26,47 total | 22,33s user 423,95s system 77% cpu 9:39,18 total | 15,69s user 106,75s system 54% cpu 3:45,36 total | 0 | ja |
- 
+| MacBook Pro (13" 2020) | 16 GB | Apple M1 | 51,67s user 5,26s system 89% cpu 1:03,29 total | 123,41s user 25,42s system 199% cpu 1:14,68 total | 11795,09s user 1567,84s system 657% cpu 33:51,89 total| 2923,15s user 882,54s system 588% cpu 10:46,19 total | 12697,26s user 1469,96s system 638% cpu 36:59,81 total | nein |
+| MacBook Pro (13" 2020) | 16 GB | Apple M1 | 39,01s user 11,90s system 88% cpu 57,479 total | 360,75s user 230,07s system 116% cpu 8:26,47 total | 22,33s user 423,95s system 77% cpu 9:39,18 total | 15,69s user 106,75s system 54% cpu 3:45,36 total | 22,81s user 391,68s system 63% cpu 10:51,91 total | ja | 
 
 ## Weitere Informationen
 Weitere Informationen zum Thema Tensorflow Benchmarking auf Apples M1 Silicon finden sich auf folgenden Seiten:
