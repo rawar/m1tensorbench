@@ -32,8 +32,8 @@ Um alle Beispiele ausführen zu können, lohnt die Installation folgender Tools:
 Um die Benchmarks für die Sprachmodelle zu trainieren, wird das Transformers Paket benötigt. Für die Installation muss man wie folgt vorgehen:
 
 1. Rust Installieren mit ``$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``
-1. Tokenizers installieren mit ``$ git clone https://github.com/huggingface/tokenizers`` und ins Verzeichnis mit den Python Bindings wechseln ``$ cd tokenizers/bindings/python``. Dort die Bindings compilieren mit ``$ pip install setuptools_rust`` und mit ``$ python setup.py install``installieren
-1. Die Transformers können dann mit ``$ pip install git+https://github.com/huggingface/transformers``installiert werden.    
+1. Tokenizers installieren mit ``$ git clone https://github.com/huggingface/tokenizers`` und ins Verzeichnis mit den Python Bindings wechseln ``$ cd tokenizers/bindings/python``. Dort die Bindings compilieren mit ``$ pip install setuptools_rust`` und mit ``$ python setup.py install`` installieren
+1. Die Transformers können dann mit ``$ pip install git+https://github.com/huggingface/transformers`` installiert werden.    
 
 ## Sind GPUs verfügbar?
 
@@ -95,6 +95,8 @@ Alle Benchmarks sind auf macOS 12.01 (Monterey) entstanden. Die Grafikkarte des 
 | Mac Mini (2018) | 8 GB | 3,2 GHz 6-Core Intel Core i7 |  96.76s user 5.51s system 113% cpu 1:30.46 total | 292.83s user 52.89s system 226% cpu 2:32.57 total | 21689.79s user 9961.12s system 759% cpu 1:09:25.48 total | 7548.09s user 5944.51s system 673% cpu 33:23.73 total | 17771.00s user 9204.41s system 743% cpu 1:00:25.83 total | nein |   
 | MacBook Pro (16" 2021) | 64 GB | Apple M1 Max | 54,17s user 3,32s system 115% cpu 49,707 total | 139,08s user 40,62s system 207% cpu 1:26,43 total | 8624,12s user 658,72s system 813% cpu 19:01,11 total | 1975,25s user 348,53s system 751% cpu 5:09,25 total | 9719,25s user 602,15s system 842% cpu 20:24,96 total | nein |
 | MacBook Pro (16" 2021) | 64 GB | Apple M1 Max | 36,29s user 12,58s system 101% cpu 48,321 total | 333,92s user 276,42s system 102% cpu 9:56,62 total | 10,52s user 12,66s system 20% cpu 1:53,65 total| 8,50s user 5,25s system 25% cpu 53,277 total | 17,95s user 11,78s system 21% cpu 2:20,08 total | ja |
+| Mac Studio | 128 GB | Apple M1 Ultra | 52,71s user 6,68s system 120% cpu 49,454 total | 60,18s user 61,10s system 207% cpu 1:46,63 total | 1906,29s user 1594,34s system 1335% cpu 4:22,02 total | 8812,16s user 2853,04s system 1450% cpu 13:24,18 total | 9795,55s user 2085,42s system 1279% cpu 15:28,57 total | nein |
+| Mac Studio | 128 GB | Apple M1 Ultra | 35,35s user 15,44s system 132% cpu 38,451 total | - | 11,44s user 14,85s system 43% cpu 59,910 total | 10,49s user 12,21s system 70% cpu 32,047 total | 16,13s user 10,80s system 37% cpu 1:11,06 total | ja |
 | MacBook Pro (16" 2021) | 32 GB | Apple M1 Pro | 51,39s user 3,49s system 116% cpu 47,173 total | 143,02s user 43,57s system 203% cpu 1:31,80 total | 10187,99s user 741,22s system 382% cpu 47:40,95 total | 2061,17s user 350,96s system 750% cpu 5:21,41 total | 9790,15s user 613,01s system 836% cpu 20:43,79 total | nein |
 | MacBook Pro (16" 2021) | 32 GB | Apple M1 Pro | 35,53s user 12,13s system 72% cpu 1:05,49 total | 349,65s user 269,74s system 84% cpu 12:16,41 total | 13,25s user 64,56s system 34% cpu 3:42,72 total | 8,51s user 4,51s system 15% cpu 1:23,39 total | 20,71s user 53,77s system 30% cpu 4:06,54 total | ja |
 | MacBook Pro (13" 2020) | 16 GB | Apple M1 | 51,67s user 5,26s system 89% cpu 1:03,29 total | 123,41s user 25,42s system 199% cpu 1:14,68 total | 11795,09s user 1567,84s system 657% cpu 33:51,89 total| 2923,15s user 882,54s system 588% cpu 10:46,19 total | 12697,26s user 1469,96s system 638% cpu 36:59,81 total | nein |
